@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Header from "./components/header/";
+import PointList from "./components/poiList/";
+import FilterControls from "./components/filterControls/";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+    render() {
+        const sample = {
+            name: { first: "Joe", last: "Bloggs" },
+            email: "j.bloggs@example.com",
+            phone: "012-3456789",
+            picture: { thumbnail: "./profile.png" }
+        };
+
+        const points = [sample, sample, sample, sample, sample];
+
+        return (
+            <div className="jumbotron">
+            <Header noPoints={10} />
+        <FilterControls />
+        <PointList points={points} />
+        </div>
     );
-  }
+    }
 }
 
 export default App;
